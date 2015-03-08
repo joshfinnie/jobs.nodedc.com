@@ -1,0 +1,23 @@
+{
+  "name": "jobs.nodedc.com",
+  "version": "0.1.0",
+  "homepage": "https://github.com/joshfinnie/jobs.nodedc.com",
+  "authors": [
+    "Josh Finnie <josh@jfin.us>"
+  ],
+  "description": "A job board for the NodeDC meetup group.",
+  "main": "./bin/www",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/lib/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-sass-official": "~3.3.3"
+  }
+}
