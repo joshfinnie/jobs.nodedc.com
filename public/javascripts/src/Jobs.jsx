@@ -1,10 +1,10 @@
 var React = require('react');
-// var Job = require('./Job.jsx');
+var Job = require('./Job.jsx');
 
 module.exports = React.createClass({
     getInitialState: function() {
         return {
-            jobs: [
+            data: [
                 {
                     company: 'TrackMaven',
                     position: 'Software Maven',
@@ -12,7 +12,7 @@ module.exports = React.createClass({
                     lookingFor: 'Angular.js, Django, ElasticSearch',
                     postedDate: '4 April 2015',
                     description: '',
-                    category: 'Engineer'
+                    category: 'Engineering'
                 },
                 {
                     company: 'TrackMaven',
@@ -21,16 +21,28 @@ module.exports = React.createClass({
                     lookingFor: 'Javascript, Python',
                     postedDate: '4 April 2015',
                     description: '',
-                    category: 'Engineer'
+                    category: 'Engineering'
                 }
             ]
         };
     },
     render: function(){
         return (
-            <div>
-                { this.state.jobs }
+            <div className="list-group">
+                {this.state.data.map(function(job){
+                    return (
+                        <Job
+                            company={job.company}
+                            position={job.position}
+                            local={job.local}
+                            lookingFor={job.lookingFor}
+                            postedDate={job.postedDate}
+                            description={job.description}
+                            category={job.category}
+                        />
+                    )
+                })}
             </div>
-        );
+        )
     }
 });
