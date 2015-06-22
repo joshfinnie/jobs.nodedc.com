@@ -4,24 +4,27 @@
   "description": "A job board for the NodeDC meetup group.",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+        "start": "node ./bin/www",
+        "postinstall": "node node_modules/bower/bin/bower install"
   },
   "dependencies": {
-    "body-parser": "~1.10.1",
-    "cookie-parser": "~1.3.3",
-    "debug": "~2.1.1",
-    "express": "~4.10.6",
-    "jade": "~1.8.2",
-    "morgan": "~1.5.1",
-    "serve-favicon": "~2.2.0"
+        "body-parser": "~1.10.1",
+        "cookie-parser": "~1.3.3",
+        "debug": "~2.1.1",
+        "express": "~4.10.6",
+        "jade": "~1.8.2",
+        "morgan": "~1.5.1",
+        "serve-favicon": "~2.2.0"
   },
   "devDependencies": {
-    "bower": "^1.3.12",
-    "browserify": "^8.1.3",
-    "gulp": "^3.8.10",
-    "gulp-sass": "^1.3.3",
-    "react": "^0.12.2",
-    "reactify": "^1.0.0",
-    "vinyl-source-stream": "^1.0.0"
+        "bower": "^1.3.12",
+        "browserify": "^8.1.3",
+        "gulp": "^3.8.10",
+        "gulp-nodemon": "^2.0.3",
+        "gulp-sass": "^1.3.3",
+        "gulp-sourcemaps": "^1.5.2",
+        "react": "^0.12.2",
+        "reactify": "^1.0.0",
+        "vinyl-source-stream": "^1.0.0"
   }
 }
