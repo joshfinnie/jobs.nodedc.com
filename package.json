@@ -1,6 +1,6 @@
 {
   "name": "jobs.nodedc.com",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A job board for the NodeDC meetup group.",
   "private": true,
   "scripts": {
