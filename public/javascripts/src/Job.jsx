@@ -4,7 +4,7 @@ module.exports = React.createClass({
     render: function() {
         return (
             <a href="#" className="list-group-item">
-                <h4 class="list-group-item-heading listing-company">
+                <h4 className="list-group-item-heading listing-company">
                     <span className="listing-position-name">{ this.props.position }</span>
                     <small className="listing-company-name">{ this.props.company }</small>
                     <small className="listing-location">{ this.props.local }</small>

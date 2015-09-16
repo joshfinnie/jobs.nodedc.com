@@ -1,37 +1,29 @@
 var React = require('react');
+var request = require('request');
+
 var Job = require('./Job.jsx');
 
 module.exports = React.createClass({
     getInitialState: function() {
-        return {
-            data: [
-                {
-                    company: 'TrackMaven',
-                    position: 'Software Maven',
-                    local: 'Washington, DC, USA',
-                    lookingFor: 'Angular.js, Django, ElasticSearch',
-                    postedDate: '4 April 2015',
-                    description: '',
-                    category: 'Engineering'
-                },
-                {
-                    company: 'TrackMaven',
-                    position: 'Junior Software Maven',
-                    local: 'Washington, DC, USA',
-                    lookingFor: 'Javascript, Python',
-                    postedDate: '4 April 2015',
-                    description: '',
-                    category: 'Engineering'
-                }
-            ]
-        };
+        return {jobs: []}
     },
+
+    componentDidMount: function() {
+        request('http://localhost:3000/api/jobs/', function(error, response, body) {
+            var result = JSON.parse(body);
+            if (this.isMounted()) {
+                this.setState(result.data);
+            }
+        }.bind(this));
+    },
+
     render: function(){
         return (
             <div className="list-group">
-                {this.state.data.map(function(job){
+                {this.state.jobs.map(function(job){
                     return (
                         <Job
+                            key={job.job_id}
                             company={job.company}
                             position={job.position}
                             local={job.local}
@@ -43,6 +35,6 @@ module.exports = React.createClass({
                     )
                 })}
             </div>
-        )
+        );
     }
 });
