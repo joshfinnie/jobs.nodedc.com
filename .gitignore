@@ -30,8 +30,8 @@ node_modules
 .DS_Store
 
 # Bower libraries
-public/libraries
+app/public/libraries
 
 # Compiled stuff
-public/stylesheets/css
-public/javascripts/build/
+app/public/stylesheets/css
+app/public/javascripts/build/

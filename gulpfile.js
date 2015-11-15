@@ -7,33 +7,25 @@ var nodemon = require('gulp-nodemon');
 var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
 
-gulp.task('server', function () {
-    nodemon({
-        script: 'bin/www',
-        ext: 'js html css',
-        env: { 'DEBUG': 'jobs.nodedc.com' }
-    })
-});
-
 gulp.task('js', function() {
-    browserify('./public/javascripts/src/app.jsx')
+    browserify('./app/public/javascripts/src/app.jsx')
         .transform(reactify)
         .bundle()
         .pipe(source('app.js'))
-        .pipe(gulp.dest('public/javascripts/build/'));
+        .pipe(gulp.dest('app/public/javascripts/build/'));
 });
 
 gulp.task('sass', function() {
-    gulp.src('public/stylesheets/scss/*.scss')
+    gulp.src('app/public/stylesheets/scss/*.scss')
         .pipe(sourcemaps.init())
         .pipe(sass())
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest('public/stylesheets/css'));
+        .pipe(gulp.dest('app/public/stylesheets/css'));
 });
 
 gulp.task('watch', function() {
-    gulp.watch("public/javascripts/src/**/*.jsx", ["js"])
-    gulp.watch("public/stylesheets/scss/*.scss", ["sass"])
+    gulp.watch("app/public/javascripts/src/**/*.jsx", ["js"])
+    gulp.watch("app/public/stylesheets/scss/*.scss", ["sass"])
 });
 
-gulp.task('default', ['js', 'sass', 'watch', 'server']);
+gulp.task('default', ['js', 'sass', 'watch']);
