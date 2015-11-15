@@ -1,0 +1,11 @@
+{
+    "apps": [{
+        "name": "server",
+        "script": "/code/app/bin/www",
+        "watch": ["./"],
+        "ignore_watch" : ["node_modules", "views", "public"],
+        "watch_options": {
+            "usePolling": true
+        }
+    }]
+}

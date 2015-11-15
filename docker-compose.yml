@@ -1,0 +1,10 @@
+builder:
+  build: docker/builder
+  volumes:
+    - ./:/code
+web:
+  build: .
+  ports:
+    - "3000:3000"
+  volumes:
+    - ./app:/code/app

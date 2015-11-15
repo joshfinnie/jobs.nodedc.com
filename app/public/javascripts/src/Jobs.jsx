@@ -8,8 +8,8 @@ module.exports = React.createClass({
         return {jobs: []}
     },
 
-    componentDidMount: function() {
-        request('http://localhost:3000/api/jobs/', function(error, response, body) {
+    componentWillMount: function() {
+        request('http://localdocker:3000/api/jobs/', function(error, response, body) {
             var result = JSON.parse(body);
             if (this.isMounted()) {
                 this.setState(result.data);
