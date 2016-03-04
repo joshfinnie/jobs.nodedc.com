@@ -1,4 +1,4 @@
-FROM node:4.2
+FROM node:4.3
 MAINTAINER Josh Finnie <josh@jfin.us>
 
 RUN npm install -g pm2@0.15.10
