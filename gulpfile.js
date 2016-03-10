@@ -1,7 +1,7 @@
 var gulp = require('gulp');
 
+var babelify = require("babelify");
 var browserify = require('browserify');
-var reactify = require('reactify');
 var source = require('vinyl-source-stream');
 var nodemon = require('gulp-nodemon');
 var sass = require('gulp-sass');
@@ -9,7 +9,7 @@ var sourcemaps = require('gulp-sourcemaps');
 
 gulp.task('js', function() {
     browserify('./app/public/javascripts/src/app.jsx')
-        .transform(reactify)
+        .transform(babelify, {presets: ["es2015", "react"]})
         .bundle()
         .pipe(source('app.js'))
         .pipe(gulp.dest('app/public/javascripts/build/'));

@@ -1,23 +1,27 @@
-var React = require('react');
-var request = require('request');
+import React, { Component } from 'react';
+import request from 'request';
 
-var Job = require('./Job.jsx');
+import Job from './Job';
 
-module.exports = React.createClass({
-    getInitialState: function() {
-        return {jobs: []}
-    },
+export default class Jobs extends Component {
+    constructor(props, context) {
+        super(props, context);
 
-    componentWillMount: function() {
+        this.state = {
+            jobs: []
+        }
+    }
+
+    componentWillMount() {
         request('http://localdocker:3000/api/jobs/', function(error, response, body) {
             var result = JSON.parse(body);
             if (this.isMounted()) {
                 this.setState(result.data);
             }
         }.bind(this));
-    },
+    }
 
-    render: function(){
+    render() {
         return (
             <div className="list-group">
                 {this.state.jobs.map(function(job){
@@ -37,4 +41,4 @@ module.exports = React.createClass({
             </div>
         );
     }
-});
+}

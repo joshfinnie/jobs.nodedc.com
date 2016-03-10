@@ -1,7 +1,7 @@
-var React = require('react');
+import React, { Component } from 'react';
 
-module.exports = React.createClass({
-    render: function() {
+export default class Job extends Component {
+    render() {
         return (
             <a href="#" className="list-group-item">
                 <h4 className="list-group-item-heading listing-company">
@@ -19,4 +19,4 @@ module.exports = React.createClass({
             </a>
         );
     }
-});
+}
