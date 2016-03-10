@@ -1,7 +1,6 @@
-var express = require('express');
-var router = express.Router();
+import { Router } from 'express';
 
-var data = {
+let data = {
     jobs: [
         {
             job_id: 1,
@@ -26,18 +25,26 @@ var data = {
     ]
 }
 
-router.get('/jobs', function(req, res) {
-    res.json({data: data});
-});
+export default function() {
+    let router = Router();
 
-router.get('/jobs/:job_id', function(req, res) {
-    var job_id = req.params.job_id;
-    for (i = 0, len = data.jobs.length; i < len; i++) {
-        if (data.jobs[i].job_id === parseInt(job_id)) {
-            res.json({data: job});
-        }
-    }
-    res.json({data: "No job found..."});
-});
+    router.get('/jobs', (req, res) => {
+        res.json({
+            data: data
+        });
+    });
 
-module.exports = router;
+    router.get('/jobs/:job_id', (req, res) => {
+        let job_id = req.params.job_id
+        for (var job of jobs) {
+            if (job.job_id === parseInt(job_id)) {
+                res.json({
+                    data: job
+                });
+            };
+        };
+        res.json({data: "No job found..."});
+    });
+
+    return router;
+}

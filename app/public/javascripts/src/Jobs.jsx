@@ -8,7 +8,7 @@ export default class Jobs extends Component {
         super(props, context);
 
         this.state = {
-            jobs=[]
+            jobs: []
         }
     }
 

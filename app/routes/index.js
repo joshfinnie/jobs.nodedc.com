@@ -1,9 +1,11 @@
-var express = require('express');
-var router = express.Router();
+import { Router } from 'express';
 
-/* GET home page. */
-router.get('/', function(req, res) {
-  res.render('index', { title: 'jobs.nodedc.com' });
-});
+export default function() {
+    let router = Router();
 
-module.exports = router;
+    router.get('/jobs', (req, res) => {
+        res.render('index', { title: 'jobs.nodedc.com' });
+    });
+
+    return router;
+}
